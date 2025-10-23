@@ -8,6 +8,7 @@ public class ShootingBase : MonoBehaviour
     public bool canHold;
     public float timer;
     public GunInfo gun;
+    public ParticleSystem particleEffect;
     
     [System.Serializable]
     public class GunInfo
@@ -43,6 +44,7 @@ public class ShootingBase : MonoBehaviour
             }
         }
 
+        particleEffect.Play();
         timer = gun.fireInterval;
     }
 }
