@@ -1460,6 +1460,14 @@ PrefabInstance:
       propertyPath: gain
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1976026123103393061, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976026123103393061, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.54
+      objectReference: {fileID: 0}
     - target: {fileID: 5923283533196899063, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.87
