@@ -52,6 +52,7 @@ Shader "Alvaro/URP_LUTColorGrading"
 
             half4 frag(Varyings IN) : SV_Target
             {
+                return half4(1.0f, 1.0f, 1.0f, 1.0f);
                 half4 col = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv);
                 
                 float maxColor = COLORS - 1.0;
