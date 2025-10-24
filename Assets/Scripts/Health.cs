@@ -8,7 +8,7 @@ public abstract class Health : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-
+            Die();
         }
     }
 
