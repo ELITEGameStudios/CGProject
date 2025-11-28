@@ -57,6 +57,7 @@ public class Turret : Health
     public void SetToShooting()
     {
         shootingBase.safety = false;
+        state = TurretState.SHOOTING;
     }
 
     public void SetToIdle()
