@@ -110,7 +110,7 @@ public class IlluminationControl : MonoBehaviour
                 catch{continue;}
             }
 
-            tarsTex = tarsMat.GetTexture("_EmissionTex");
+            tarsTex = tarsMat.GetTexture("_EmissionTexture");
             tarsMat.SetTexture("_EmissionTexture", null);
             textures = false;
         }

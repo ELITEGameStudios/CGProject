@@ -104,8 +104,19 @@ public class PlayerMovement : MonoBehaviour
 
     void CalculateLookRotation()
     {
-        transform.Rotate(new Vector3(0, lookInput.x * rotSensitivity.x, 0));
+        Quaternion rotation = headTf.rotation;
+        
         headTf.Rotate(new Vector3(-lookInput.y * rotSensitivity.y, 0, 0));
+        if(Mathf.Abs(Vector3.SignedAngle(headTf.forward, transform.forward, transform.right)) > 85){
+            headTf.rotation = rotation;
+        }
+
+
+        transform.Rotate(new Vector3(0, lookInput.x * rotSensitivity.x, 0));
+        
+        
+        
+        // Debug.Log(Vector3.SignedAngle(headTf.forward, transform.forward, transform.right));
     }
 
     void CalculateVelocityNormalState()
