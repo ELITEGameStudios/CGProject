@@ -6138,7 +6138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightingMaterial: {fileID: 2100000, guid: 16c2c163978baf245891ff87f9c4389f, type: 2}
   mainExtrusionShader: {fileID: 2100000, guid: 083b1d22bd764fa42829a4f7b9fd9108, type: 2}
-  pulseMat: {fileID: 0}
   distanceOpaqueMat:
   - {fileID: 2100000, guid: 5d84c6369dc82fc4d88cb40b0fe35e7c, type: 2}
   - {fileID: 2100000, guid: 083b1d22bd764fa42829a4f7b9fd9108, type: 2}
@@ -6148,30 +6147,57 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5c9c40727d5886f4ca3ecfb4d4ed1f40, type: 2}
   - {fileID: 2100000, guid: 1b047f0ed9ae6a94eab0c4e05d4bb9cf, type: 2}
   - {fileID: 2100000, guid: 6e79dd166cdbeb347aad63aec55fbf15, type: 2}
+  allMaterials:
+  - {fileID: 2100000, guid: e11811f41fad0c8459cd3c7975443787, type: 2}
+  - {fileID: 2100000, guid: e5eacebf0fc4f1f4fa158416257d592c, type: 2}
+  - {fileID: 2100000, guid: a185c727abcc26a429e379f0b40b0609, type: 2}
+  - {fileID: 2100000, guid: 203af35ace5622a49aaef1eb5ef15c31, type: 2}
+  - {fileID: 2100000, guid: f26dcb5f83dbd3649afa9f1322b51975, type: 2}
+  - {fileID: 2100000, guid: 5c9c40727d5886f4ca3ecfb4d4ed1f40, type: 2}
+  - {fileID: 2100000, guid: 1b047f0ed9ae6a94eab0c4e05d4bb9cf, type: 2}
+  - {fileID: 2100000, guid: 6e79dd166cdbeb347aad63aec55fbf15, type: 2}
+  - {fileID: 2100000, guid: 25a7076159d0acb4ebca302607f31fe5, type: 2}
+  - {fileID: 2100000, guid: d93184269da4ea045b537002a6a7210c, type: 2}
+  - {fileID: 2100000, guid: 830c93fe501750e438e5a2398e202da3, type: 2}
+  - {fileID: 2100000, guid: 2b7617ca68d458943b0b889da15f34e6, type: 2}
+  - {fileID: 2100000, guid: 16c2c163978baf245891ff87f9c4389f, type: 2}
+  - {fileID: 2100000, guid: ece72bc6f9730294f8541bacf569097a, type: 2}
+  - {fileID: 2100000, guid: 3d3dd20f5446fb74dbdaf6db2da8c447, type: 2}
+  - {fileID: 2100000, guid: 76faed88ea7543f4e944fe7c167f93b9, type: 2}
+  - {fileID: 2100000, guid: ca559dddfc3696c4eab5241722a4e1b1, type: 2}
+  - {fileID: 2100000, guid: c6e324be92c666549823750ba5ac13c0, type: 2}
+  - {fileID: 2100000, guid: 4a97a7f9e5ee2ad44b4d641fc32ebd92, type: 2}
+  - {fileID: 2100000, guid: 5d84c6369dc82fc4d88cb40b0fe35e7c, type: 2}
+  - {fileID: 2100000, guid: 083b1d22bd764fa42829a4f7b9fd9108, type: 2}
+  - {fileID: 2100000, guid: c26462dae5117a34cb052111d19cbbef, type: 2}
   fullscreenMat: {fileID: 2100000, guid: 203af35ace5622a49aaef1eb5ef15c31, type: 2}
   healthFullscreenEffect: {fileID: 2100000, guid: d93184269da4ea045b537002a6a7210c, type: 2}
   deathFullscreenEffect: {fileID: 2100000, guid: e5eacebf0fc4f1f4fa158416257d592c, type: 2}
+  tarsMat: {fileID: 2100000, guid: c6e324be92c666549823750ba5ac13c0, type: 2}
   LUTIndex: -1
   LUTs:
   - {fileID: 2800000, guid: 9079208a94df2474ab403ae41ea47f5e, type: 3}
   - {fileID: 2800000, guid: 00c941f599c992c45a9e8aa524474fe3, type: 3}
   - {fileID: 2800000, guid: 0efd44e66d5a42f43a29b6c7d59d470c, type: 3}
   playerTf: {fileID: 274093631}
+  textures: 1
+  allTextures: []
+  tarsTex: {fileID: 2800000, guid: 4878b11e7d9c24d49900d7ac352966b1, type: 3}
   startupCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
+      time: 0.0018003585
+      value: 1.0030395
+      inSlope: -2.479925
+      outSlope: -2.479925
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.028854651
     - serializedVersion: 3
       time: 1
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

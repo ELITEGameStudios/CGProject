@@ -1,16 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-[ExecuteAlways]
 public class IlluminationControl : MonoBehaviour
 {
     public Material lightingMaterial, mainExtrusionShader;
-    public Material pulseMat;
     public Material[] distanceOpaqueMat, glitchMaterials;
-    public Material fullscreenMat, healthFullscreenEffect, deathFullscreenEffect;
+    public Material[] allMaterials;
+    public Material fullscreenMat, healthFullscreenEffect, deathFullscreenEffect, tarsMat;
     public int LUTIndex;
     public Texture2D[] LUTs;
     public Transform playerTf;
+    public bool textures = true;
+    public Texture[] allTextures;
+    public Texture tarsTex;
 
 
     [SerializeField] private AnimationCurve startupCurve;
@@ -23,12 +25,9 @@ public class IlluminationControl : MonoBehaviour
     {
         if (instance == null) { instance = this; }
         else if (instance != this) { Destroy(this); }
-        
-        #if UNITY_EDITOR
-        // maybe ill put something here not sure
-        #else
+        textures = true;
+    
         StartCoroutine(StartSequenceCoroutine());
-        #endif
         InitializeLighting();
     }
 
@@ -50,6 +49,14 @@ public class IlluminationControl : MonoBehaviour
     void Update()
     {
         UpdateLighting();
+        
+        // #if !UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            UpdateTextures();
+        }
+        // #endif
+
         foreach (Material mat in distanceOpaqueMat)
         {
             mat.SetVector("_PlayerPosWS", playerTf.position);
@@ -87,18 +94,58 @@ public class IlluminationControl : MonoBehaviour
         }
     }
 
+    void UpdateTextures()
+    {
+        if (textures)
+        {
+            allTextures = new Texture[allMaterials.Length];
+            for (int i = 0; i < allMaterials.Length; i++)
+            {
+                Material mat = allMaterials[i];
+                try
+                {
+                    allTextures[i] = mat.GetTexture("_MainTex");
+                    mat.SetTexture("_MainTex", null);
+                }
+                catch{continue;}
+            }
+
+            tarsTex = tarsMat.GetTexture("_EmissionTex");
+            tarsMat.SetTexture("_EmissionTexture", null);
+            textures = false;
+        }
+        else {
+            // allTextures = new Texture2D[allMaterials.Length];
+            for (int i = 0; i < allMaterials.Length; i++)
+            {
+                Material mat = allMaterials[i];
+                try
+                {
+                    mat.SetTexture("_MainTex", allTextures[i]);
+                    // allTextures[i] = (Texture2D)mat.GetTexture("_MainTex");
+                }
+                catch{continue;}
+            }
+
+            tarsMat.SetTexture("_EmissionTexture", tarsTex);
+            // tarsTex = (Texture2D)tarsMat.GetTexture("_EmissionTex");
+            textures = true;
+            
+        }
+    }
+
     public IEnumerator StartSequenceCoroutine()
     {
-        Time.timeScale = 0;
+        // Time.timeScale = 1;
         float animTime = 2;
         float currentAnimTime = animTime;
-
-        while (animTime > 0)
+        while (currentAnimTime > 0)
         {
-            mainExtrusionShader.SetFloat("_ExtrusionFactor", startExtrusionFactorPrimary * startupCurve.Evaluate(1 - currentAnimTime / animTime));
-            lightingMaterial.SetFloat("_ExtrusionFactor", startExtrusionFactorSecondary * startupCurve.Evaluate(1 - currentAnimTime / animTime));
+            mainExtrusionShader.SetFloat("_ExtrusionFactor", startExtrusionFactorSecondary * startupCurve.Evaluate(1 - currentAnimTime / animTime));
+            lightingMaterial.SetFloat("_ExtrusionFactor", startExtrusionFactorPrimary * startupCurve.Evaluate(1 - currentAnimTime / animTime));
 
-            animTime -= Time.unscaledDeltaTime;
+            Debug.Log("Tick");
+            currentAnimTime -= Time.deltaTime;
             yield return null;
         }
 
