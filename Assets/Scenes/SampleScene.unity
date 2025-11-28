@@ -595,8 +595,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 5
+      scalar: 7
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1456,7 +1456,7 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 3
+      cycleCount: 1
       repeatInterval: 0.01
       probability: 1
   SizeModule:
@@ -8020,10 +8020,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3486764570197087492, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5923283533196899063, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.87
@@ -14402,6 +14398,18 @@ PrefabInstance:
     - target: {fileID: 1518264393588114755, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
       propertyPath: range
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065647593382819084, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065647593382819084, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065647593382819084, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5923283533196899063, guid: 7d46c868736ee2740a0255a6b2ca6bce, type: 3}
       propertyPath: m_LocalPosition.x

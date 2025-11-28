@@ -77,16 +77,18 @@ public class ShootingBase : MonoBehaviour
                         hit.collider.gameObject.GetComponent<Player>().Damage(gun.damage);
                     }
 
-                    hitSurfaceParticleEffect.transform.localScale = Vector3.one;
-                    hitSurfaceParticleEffect.transform.SetParent(null);
-                    hitSurfaceParticleEffect.transform.position = hit.point;
-                    hitSurfaceParticleEffect.transform.rotation = Quaternion.LookRotation(hit.normal);
-                    hitSurfaceParticleEffect.Play();
                 }
 
                 if(hit.collider.gameObject.tag == "Tars"){
                     hit.collider.gameObject.GetComponent<Tars>().Kill();
                 }
+
+                
+                hitSurfaceParticleEffect.transform.localScale = Vector3.one;
+                hitSurfaceParticleEffect.transform.SetParent(null);
+                hitSurfaceParticleEffect.transform.position = hit.point;
+                hitSurfaceParticleEffect.transform.rotation = Quaternion.LookRotation(hit.normal);
+                hitSurfaceParticleEffect.Play();
 
 
             }
