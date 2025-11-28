@@ -137,7 +137,7 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     - _boolAmbient: 1
-    - _boolDiffuse: 0
+    - _boolDiffuse: 1
     - _boolSpecular: 1
     - _boolToon: 1
     - _boolToon_1: 0
