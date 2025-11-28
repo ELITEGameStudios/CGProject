@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Player : Health
 {
     public static Player instance {get; private set;}
-    public Health healthScript;
     public PlayerMovement moveScript;
     public ShootingBase gunScript;
     public Transform gunTargetTf;

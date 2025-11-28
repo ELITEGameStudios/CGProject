@@ -9,6 +9,7 @@ public class Turret : Health
     public float timer, gain = 0.1f;
     public float warningTime = 2;
     public TurretState state;
+    public GameObject laser;
 
     public enum TurretState
     {
@@ -24,16 +25,19 @@ public class Turret : Health
         {
             case TurretState.IDLE:
                 UpdateIdlePosition();
+                laser.SetActive(false);
                 break;
 
             case TurretState.LOCKED:
                 UpdateLockedPosition();
                 timer -= Time.deltaTime;
                 if (timer <= 0) { SetToShooting(); }
+                laser.SetActive(!shootingBase.reloading);
                 break;
 
             case TurretState.SHOOTING:
                 UpdateLockedPosition();
+                laser.SetActive(!shootingBase.reloading);
                 break;
         }
 

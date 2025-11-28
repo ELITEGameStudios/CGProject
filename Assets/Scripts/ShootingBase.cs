@@ -8,7 +8,7 @@ public class ShootingBase : MonoBehaviour
     public AnimationCurve curve;
     public bool safety;
     public bool canHold, setRenderer = true;
-    public bool needsPlayerInput;
+    public bool needsPlayerInput, reloading;
     public float timer, reloadTime;
     public GunInfo gun;
     public ParticleSystem particleEffect, hitSurfaceParticleEffect;
@@ -71,10 +71,24 @@ public class ShootingBase : MonoBehaviour
                 {
                     if (needsPlayerInput){
                         hit.collider.gameObject.GetComponent<Health>().Damage(gun.damage);
-                        return;
                     }
-                    hit.collider.gameObject.GetComponent<Player>().Damage(gun.damage);
+                    else
+                    {
+                        hit.collider.gameObject.GetComponent<Player>().Damage(gun.damage);
+                    }
+
+                    hitSurfaceParticleEffect.transform.localScale = Vector3.one;
+                    hitSurfaceParticleEffect.transform.SetParent(null);
+                    hitSurfaceParticleEffect.transform.position = hit.point;
+                    hitSurfaceParticleEffect.transform.rotation = Quaternion.LookRotation(hit.normal);
+                    hitSurfaceParticleEffect.Play();
                 }
+
+                if(hit.collider.gameObject.tag == "Tars"){
+                    hit.collider.gameObject.GetComponent<Tars>().Kill();
+                }
+
+
             }
             if(particleEffect != null) { particleEffect.Play(); }
             timer = gun.fireInterval;
@@ -115,10 +129,12 @@ public class ShootingBase : MonoBehaviour
 
     public IEnumerator RechargeCoroutine()
     {
+        reloading = true;
         formerMaterials = matRenderer.materials;
         matRenderer.materials = IlluminationControl.instance.glitchMaterials;
         yield return new WaitForSeconds(reloadTime);
         gun.bullets = gun.maxBullets;
         matRenderer.materials = formerMaterials;
+        reloading = false;
     }
 }
