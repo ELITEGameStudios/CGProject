@@ -1,5 +1,7 @@
 # CGProject
 
+PROJECT VIDEO --------------- https://www.youtube.com/watch?v=dBzhfYNZLyc
+
 ----SHADER EXPLANATIONS----
 "MATRIX GLOW"Step 2: The Shader takes the magnitude of the difference between the player's position in world space and the current position of the target pixel. This magnitude now representing distance is divided by a float property to give a customizable range of the effect. This range value is saturated and fed to a gradient map which determines the color and alpha of that pixel once multiplied by its sample texture. It is notable to mention that the player position is fed to the shader via a Unity script.
 
